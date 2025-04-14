@@ -1,0 +1,22 @@
+<!-- favorites.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Favorite Movies</title>
+</head>
+<body>
+<h1>Favorite Movies</h1>
+
+<div th:if="${favoriteMovies.isEmpty()}">
+    <p>No favorite movies found.</p>
+</div>
+
+<div th:each="movie : ${favoriteMovies}">
+    <h2 th:text="${movie.title}">Movie Title</h2>
+    <p th:text="${movie.overview}">Overview</p>
+    <a th:href="@{/movie/{id}(id=${movie.id})}">View Details</a>
+</div>
+
+<a href="/movies">← Back to Movies</a>
+</body>
+</html>

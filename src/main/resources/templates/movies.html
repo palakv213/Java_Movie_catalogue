@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Movies List</title>
+</head>
+<body>
+<h1>Trending Movies</h1>
+<div th:if="${movies != null}">
+    <ul>
+        <li th:each="movie : ${movies}">
+            <h3 th:text="${movie.title}"></h3>
+            <p th:text="${movie.overview}"></p>
+            <a th:href="@{/movies/{id}(id=${movie.id})}">View Details</a>
+            <a th:href="@{/add-to-favorites/{id}(id=${movie.id})}" class="btn btn-primary">Add to Favorites</a>
+
+        </li>
+    </ul>
+</div>
+<div th:if="${movies == null}">
+    <p>No movies available at the moment.</p>
+</div>
+</body>
+</html>

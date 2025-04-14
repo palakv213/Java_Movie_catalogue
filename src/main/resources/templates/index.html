@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trending Movies</title>
+</head>
+<body>
+<h1>Trending Movies</h1>
+
+<div th:if="${errorMessage}">
+    <p style="color: red;" th:text="${errorMessage}"></p>
+</div>
+
+<ul>
+    <li th:each="movie : ${movies}">
+        <h3 th:text="${movie.title}"></h3>
+        <img th:src="'https://image.tmdb.org/t/p/w500' + ${movie.posterPath}" alt="Movie Poster" />
+        <p th:text="${movie.overview}"></p>
+    </li>
+</ul>
+</body>
+</html>
